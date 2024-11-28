@@ -1,0 +1,7 @@
+SpeechRecognition
+pyttsx3
+transformers
+schedule
+pocketsphinx
+pyaudio
+
