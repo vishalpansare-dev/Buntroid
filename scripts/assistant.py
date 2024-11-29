@@ -1,57 +1,58 @@
-from speech_recognitions import initialize_recognition, recognize_speech, stop_recognition
-from text_to_speech import initialize_speech_engine, speak
-from task_manager import add_task, list_tasks, delete_task
+import logging
+
+from scripts.db_helper import initialize_database
+from scripts.gui import create_gui
+from scripts.nlp import classify_intent, extract_entities
+
+logging.basicConfig(filename='/Users/vishal_pansare/PycharmProjects/Buntroid/logs/assistant_logs.txt', level=logging.INFO, format='%(asctime)s - %(message)s')
+
+def log_interaction(action):
+    """Logs the interaction to the log file."""
+    logging.info(action)
 
 
 def main():
-    """Main function to run the assistant."""
-    # Initialize Speech Recognition and Text-to-Speech
-    recognizer = initialize_recognition("/Users/vishal_pansare/PycharmProjects/Buntroid/models/vosk-model")
-    engine = initialize_speech_engine()
+    create_gui()
 
-    # Greet the user
-    speak(engine, "Hello, how can I assist you today?")
 
-    try:
-        while True:
-            # Listen for speech input
-            recognized_text = recognize_speech(recognizer)
-            if recognized_text:
-                print(f"Recognized: {recognized_text}")
-                speak(engine, f"You said: {recognized_text}")
+def process_command(command):
+    """Process the command and take appropriate action."""
 
-                # Task-related commands
-                if "hello" in recognized_text.lower():
-                    task_name = recognized_text.lower().replace("hello", "").strip()
-                    if task_name:
-                        add_task(task_name)
-                        speak(engine, f"Task '{task_name}' added.")
-                    else:
-                        speak(engine, "Please provide a task name.")
+    # Step 1: Classify the intent of the command
+    intent = classify_intent(command.lower())
 
-                elif "list tasks" in recognized_text.lower():
-                    tasks = list_tasks()
-                    speak(engine, f"Your tasks are: {tasks}")
+    # Step 2: Extract entities from the command
+    entities = extract_entities(command)
 
-                elif "delete task" in recognized_text.lower():
-                    try:
-                        task_number = int(recognized_text.split("task")[-1].strip())
-                        result = delete_task(task_number - 1)  # Convert to zero-based index
-                        speak(engine, result)
-                    except ValueError:
-                        speak(engine, "Please specify the task number to delete.")
+    # Step 3: Act based on the intent and entities
+    if intent == "reminder":
+        # Extract details for the reminder (like time and description)
+        reminder = entities.get('TIME', 'No time specified')
+        person = entities.get('PERSON', 'Unknown person')
+        print(f"Setting a reminder for {person} at {reminder}")
+        # You can call the add_reminder function here
 
-                elif "stop" in recognized_text.lower():
-                    speak(engine, "Goodbye!")
-                    break
+    elif intent == "task":
+        # Handle task-related commands
+        print(f"Adding task: {command}")
+        # You can call the add_task function here
 
-    except KeyboardInterrupt:
-        pass
-    finally:
-        # Stop recognition and cleanup
-        stop_recognition()
-        print("Assistant stopped.")
+    elif intent == "note":
+        # Handle note-related commands
+        print(f"Adding note: {command}")
+        # You can call the add_note function here
+
+    elif intent == "email":
+        # Handle email-related commands
+        print(f"Preparing to send email...")
+        # You can call the send_email function here
+
+    else:
+        print("Sorry, I didn't understand that command.")
 
 
 if __name__ == "__main__":
-    main()
+    initialize_database()
+    # # log_interaction(f"Command: audio, Response: response")
+    # main()
+    # process_command("Remind me to email John tomorrow at 10 AM")

@@ -1,8 +1,12 @@
+import json
+import queue
+import sys
+
 import sounddevice as sd
 import numpy as np
 from vosk import Model, KaldiRecognizer
 
-
+q = queue.Queue()
 def initialize_recognition(model_path):
     """Initialize the Vosk model and microphone input."""
     model = Model(model_path)
@@ -15,29 +19,21 @@ def recognize_speech(recognizer):
     recognized_text = None  # To store the recognized speech
 
     def callback(indata, frames, time, status):
-        """Process the audio data and recognize speech."""
-        nonlocal recognized_text  # To modify the recognized_text in the main function
+        """Process audio stream and add it to the queue."""
         if status:
-            print(status)
+            print(f"Status: {status}", file=sys.stderr)
+        q.put(bytes(indata))
 
-        # Convert indata (numpy array) to bytes
-        indata_bytes = indata.tobytes()
-
-        # Check if speech is recognized
-        if recognizer.AcceptWaveform(indata_bytes):
-            result = recognizer.Result()
-            print(f"Recognized: {result}")
-            recognized_text = result  # Store the recognized text
-
-    # Start the input stream
-    with sd.InputStream(channels=1, samplerate=16000, dtype='int16', callback=callback):
+        # Start the input stream
+    with sd.InputStream(callback=callback, channels=1, samplerate=16000, dtype="int16"):
         print("Listening for commands...")
-
-        # Continuously listen for speech until we get a result
-        while recognized_text is None:
-            sd.sleep(100)  # Sleep to avoid 100% CPU usage
-        return recognized_text
-
+        while True:
+            audio_data = q.get()  # Get audio data from the queue
+            if recognizer.AcceptWaveform(audio_data):  # Process the audio data
+                result = recognizer.Result()
+                result_json = json.loads(result)
+                if "text" in result_json:
+                    return result_json["text"]  # Return the recognized text
 
 def stop_recognition():
     """Stop the recognition."""
