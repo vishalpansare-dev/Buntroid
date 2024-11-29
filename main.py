@@ -36,34 +36,8 @@ def recognize_speech():
 
 # Process user commands
 def process_command(command):
-    if "check email" in command:
-        emails = check_emails("your_email@gmail.com", "your_password")
-        return "\n".join(emails)
-    elif "create directory" in command:
-        path = command.replace("create directory", "").strip()
-        return create_directory(path)
-    elif "delete directory" in command:
-        path = command.replace("delete directory", "").strip()
-        return delete_directory(path)
-    elif "search file" in command:
-        file_name = command.replace("search file", "").strip()
-        results = search_file(file_name)
-        return "\n".join(results)
-    elif "generate text" in command:
-        prompt = command.replace("generate text", "").strip()
-        return generate_response(prompt)
-    elif "what time is it" in command:
-        from datetime import datetime
-        now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
-        return f"The current time is {current_time}"
-    elif "what is today's date" in command:
-        from datetime import datetime
-        today = datetime.today()
-        current_date = today.strftime("%B %d, %Y")
-        return f"Today's date is {current_date}"
-    else:
-        return "Sorry, I don't recognize this command."
+    response = generate_response(command)
+    return response
 
 
 # Main interactive loop
