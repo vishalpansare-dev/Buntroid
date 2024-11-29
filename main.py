@@ -52,16 +52,21 @@ def process_command(command):
     elif "generate text" in command:
         prompt = command.replace("generate text", "").strip()
         return generate_response(prompt)
-    elif "what time is it" in command:
-        from datetime import datetime
-        now = datetime.now()
-        current_time = now.strftime("%H:%M:%S")
-        return f"The current time is {current_time}"
-    elif "what is today's date" in command:
-        from datetime import datetime
-        today = datetime.today()
-        current_date = today.strftime("%B %d, %Y")
-        return f"Today's date is {current_date}"
+    else:
+        from assistant.nlp_processor import determine_intent
+        intent = determine_intent(command)
+        if intent == 'ask_time':
+            from datetime import datetime
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            return f"The current time is {current_time}"
+        elif intent == 'ask_date':
+            from datetime import datetime
+            today = datetime.today()
+            current_date = today.strftime("%B %d, %Y")
+            return f"Today's date is {current_date}"
+        else:
+            return "Sorry, I don't recognize this command."
     else:
         return "Sorry, I don't recognize this command."
 
