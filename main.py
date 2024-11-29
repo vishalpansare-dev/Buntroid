@@ -52,12 +52,12 @@ def process_command(command):
     elif "generate text" in command:
         prompt = command.replace("generate text", "").strip()
         return generate_response(prompt)
-    elif "what time is it" in command:
+    elif "what time is it" in command or "current time" in command or "time now" in command:
         from datetime import datetime
         now = datetime.now()
         current_time = now.strftime("%H:%M:%S")
         return f"The current time is {current_time}"
-    elif "what is today's date" in command:
+    elif "what is today's date" in command or "today's date" in command or "current date" in command:
         from datetime import datetime
         today = datetime.today()
         current_date = today.strftime("%B %d, %Y")
