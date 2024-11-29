@@ -1,7 +1,7 @@
-SpeechRecognition
 pyttsx3
+SpeechRecognition
+vosk
+pyqt5
 transformers
-schedule
-pocketsphinx
+datasets
 pyaudio
-
