@@ -19,18 +19,19 @@ def speak(text):
 
 # Function to recognize speech from mic
 def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        print("Listening...")
-        try:
-            audio = recognizer.listen(source, timeout=5)
-            return recognizer.recognize_sphinx(audio)  # Use pocketsphinx for offline recognition
-        except sr.UnknownValueError:
-            return "I didn't catch that."
-        except sr.RequestError:
-            return "Speech recognition service is unavailable."
-        except sr.WaitTimeoutError:
-            return "You didn't say anything."
+    return input("You: ").lower()
+    # recognizer = sr.Recognizer()
+    # with sr.Microphone() as source:
+    #     print("Listening...")
+    #     try:
+    #         audio = recognizer.listen(source, timeout=5)
+    #         return recognizer.recognize_sphinx(audio)  # Use pocketsphinx for offline recognition
+    #     except sr.UnknownValueError:
+    #         return "I didn't catch that."
+    #     except sr.RequestError:
+    #         return "Speech recognition service is unavailable."
+    #     except sr.WaitTimeoutError:
+    #         return "You didn't say anything."
 
 
 # Process user commands
@@ -68,7 +69,7 @@ def interactive_agent():
 
         response = process_command(command)
         print(f"AI: {response}")
-        speak(response)
+        # speak(response)
 
 
 # Background tasks (if any)
