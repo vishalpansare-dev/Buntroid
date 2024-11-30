@@ -9,36 +9,40 @@ nlp = spacy.load('en_core_web_sm')
 
 
 def process_command(command):
-    # Process the command with spaCy NLP
-    doc = nlp(command.lower())
+    """Process the command and take appropriate action."""
 
-    # Check for task-related actions
-    if "task" in command:
-        if "add" in command:
-            task_name = extract_task_name(doc)
-            if task_name:
-                add_task(task_name)
-                return f"Task '{task_name}' added!"
-            return "Please specify the task name."
-        elif "remove" in command:
-            task_name = extract_task_name(doc)
-            if task_name:
-                remove_task(task_name)
-                return f"Task '{task_name}' removed!"
-            return "Please specify the task name to remove."
+    # Step 1: Classify the intent of the command
+    intent = classify_intent(command.lower())
 
-    # Check for reminder-related actions
-    elif "reminder" in command:
-        if "add" in command:
-            reminder_text = extract_reminder(doc)
-            time_in_seconds = extract_time(doc)
-            if reminder_text and time_in_seconds:
-                add_reminder(reminder_text, time_in_seconds)
-                return f"Reminder set: {reminder_text} in {time_in_seconds} seconds!"
-            return "Please specify the reminder text and time."
+    # Step 2: Extract entities from the command
+    entities = extract_entities(command)
 
-    # If no recognized action
-    return "Sorry, I didn't understand that command."
+    # Step 3: Act based on the intent and entities
+    if intent == "reminder":
+        # Extract details for the reminder (like time and description)
+        reminder = entities.get('TIME', 'No time specified')
+        person = entities.get('PERSON', 'Unknown person')
+        print(f"Setting a reminder for {person} at {reminder}")
+        # You can call the add_reminder function here
+
+    elif intent == "task":
+        # Handle task-related commands
+        print(f"Adding task: {command}")
+        # You can call the add_task function here
+
+    elif intent == "note":
+        # Handle note-related commands
+        print(f"Adding note: {command}")
+        # You can call the add_note function here
+
+    elif intent == "email":
+        # Handle email-related commands
+        print(f"Preparing to send email...")
+        # You can call the send_email function here
+
+    else:
+        print("Sorry, I didn't understand that command.")
+
 
 
 def extract_task_name(doc):
