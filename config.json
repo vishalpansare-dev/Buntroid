@@ -1,0 +1,8 @@
+
+{
+    "app_name": "Home AI Assistant",
+    "version": "1.0.0",
+    "speech": {
+        "language": "en-US"
+    }
+}

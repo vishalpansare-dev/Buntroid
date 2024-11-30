@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "paths": [
+      "scripts/script1.py",
+      "scripts/script2.sh",
+      "scripts/script3.bat"
+    ],
+    "schedule": {
+      "scripts/script1.py": 60,
+      "scripts/script2.sh": 300
+    },
+    "cron": {
+      "scripts/script3.bat": "0 6 * * *"
+    }
+  }
+}

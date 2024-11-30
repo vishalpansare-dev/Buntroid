@@ -1,25 +1,21 @@
-import pyttsx3
-engine = pyttsx3.init()
-engine.say("Offline AI Assistant is ready!")
-engine.runAndWait()
-from PyQt5.QtWidgets import QApplication, QWidget
+from assistant.speech.speech_to_text import SpeechToText
+from assistant.nlp.query_understanding import QueryUnderstanding
+from utils.logger import log
 
-app = QApplication([])
-window = QWidget()
-window.setWindowTitle("Offline AI Assistant")
-window.show()
-app.exec_()
 
-from vosk import Model, KaldiRecognizer
-import wave
+if __name__ == "__main__":
+    try:
+        # Initialize speech recognition and NLP
+        stt = SpeechToText(use_vosk=True, vosk_model_path="models/vosk-model-en-in-0.5")
+        assistant = QueryUnderstanding()
 
-model = Model("/models/vosk-model-en-us-0.42-gigaspeech")
-rec = KaldiRecognizer(model, 16000)
-
-wf = wave.open("/models/test.wav", "rb")
-while True:
-    data = wf.readframes(4000)
-    if len(data) == 0:
-        break
-    if rec.AcceptWaveform(data):
-        print(rec.Result())
+        log("Assistant is active. Say 'Hey Assistant' to activate.", "info")
+        while True:
+            command = stt.listen_for_command(duration=5)
+            if command:
+                response = assistant.process_command(command)
+                log(response, "info")
+    except KeyboardInterrupt:
+        log("Shutting down assistant.", "info")
+    except Exception as e:
+        log(f"An unexpected error occurred: {e}", "error")

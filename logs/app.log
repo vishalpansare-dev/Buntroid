@@ -1,0 +1,105 @@
+2024-11-30 21:38:59,853 - INFO - Discovered Wi-Fi devices: Device-WiFi-1, Device-WiFi-2, Device-WiFi-3
+2024-11-30 21:38:59,857 - INFO - Discovered Bluetooth devices: Device-BT-1, Device-BT-2
+2024-11-30 21:38:59,857 - INFO - Total discovered devices: Device-WiFi-1, Device-WiFi-2, Device-WiFi-3, Device-BT-1, Device-BT-2
+2024-11-30 21:39:56,319 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:42:06,590 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:43:07,800 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:43:20,615 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:43:50,714 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:44:26,518 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:45:58,104 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:49:11,298 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:51:49,890 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 21:55:06,081 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 22:00:35,131 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 22:00:35,243 - ERROR - Error: config.json file not found.
+2024-11-30 22:01:41,126 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 22:01:41,199 - DEBUG - /etc/localtime found
+2024-11-30 22:01:41,201 - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'Asia/Kolkata'}
+2024-11-30 22:02:32,773 - ERROR - Error connecting to Arduino: [Errno 2] could not open port /dev/ttyUSB0: [Errno 2] No such file or directory: '/dev/ttyUSB0'
+2024-11-30 22:02:32,827 - DEBUG - /etc/localtime found
+2024-11-30 22:02:32,828 - DEBUG - 1 found:
+ {'/etc/localtime is a symlink to': 'Asia/Kolkata'}
+2024-11-30 22:02:33,174 - ERROR - File does not exist: sample.mp3
+2024-11-30 22:13:26,364 - ERROR - Vosk model not found at models/vosk-model. Please download and place it correctly.
+2024-11-30 22:14:12,666 - INFO - Starting Speech-to-Text module. Say something!
+2024-11-30 22:14:12,673 - INFO - Listening for audio input...
+2024-11-30 22:14:18,038 - INFO - Audio input captured successfully.
+2024-11-30 22:18:18,959 - INFO - Starting Speech-to-Text module. Say something!
+2024-11-30 22:18:18,962 - INFO - Listening for audio input...
+2024-11-30 22:18:24,291 - INFO - Audio input captured successfully.
+2024-11-30 22:18:24,295 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:18:24,708 - WARNING - No clear transcription detected.
+2024-11-30 22:18:24,709 - WARNING - No speech detected or recognition failed.
+2024-11-30 22:18:24,709 - INFO - Listening for audio input...
+2024-11-30 22:18:30,316 - INFO - Audio input captured successfully.
+2024-11-30 22:18:30,319 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:18:30,739 - INFO - Recognized text (offline): hello are you doing
+2024-11-30 22:18:30,740 - INFO - You said: hello are you doing
+2024-11-30 22:18:30,740 - INFO - Listening for audio input...
+2024-11-30 22:18:36,378 - INFO - Audio input captured successfully.
+2024-11-30 22:18:36,383 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:18:36,612 - INFO - Recognized text (offline): 
+2024-11-30 22:18:36,614 - WARNING - No speech detected or recognition failed.
+2024-11-30 22:18:36,614 - INFO - Listening for audio input...
+2024-11-30 22:18:42,211 - INFO - Audio input captured successfully.
+2024-11-30 22:18:42,215 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:18:42,441 - INFO - Recognized text (offline): 
+2024-11-30 22:18:42,442 - WARNING - No speech detected or recognition failed.
+2024-11-30 22:18:42,443 - INFO - Listening for audio input...
+2024-11-30 22:18:48,048 - INFO - Audio input captured successfully.
+2024-11-30 22:18:48,053 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:18:48,292 - INFO - Recognized text (offline): 
+2024-11-30 22:18:48,294 - WARNING - No speech detected or recognition failed.
+2024-11-30 22:18:48,294 - INFO - Listening for audio input...
+2024-11-30 22:18:53,607 - INFO - Shutting down Speech-to-Text module.
+2024-11-30 22:29:54,062 - ERROR - Vosk model not found at models/vosk-model-en-in-0.5. Please download and place it correctly.
+2024-11-30 22:30:34,426 - INFO - Starting Speech-to-Text module. Say the wake word to activate.
+2024-11-30 22:30:34,429 - INFO - Listening for audio input...
+2024-11-30 22:30:39,756 - INFO - Audio input captured successfully.
+2024-11-30 22:33:30,640 - ERROR - Vosk model not found at models/vosk-model-en-in-0.5. Please download and place it correctly.
+2024-11-30 22:34:13,231 - INFO - Starting Speech-to-Text module. Say the wake word to activate.
+2024-11-30 22:34:13,235 - INFO - Listening for audio input...
+2024-11-30 22:34:18,564 - INFO - Audio input captured successfully.
+2024-11-30 22:34:18,866 - WARNING - No valid command detected.
+2024-11-30 22:34:18,867 - INFO - Listening for audio input...
+2024-11-30 22:34:24,492 - INFO - Audio input captured successfully.
+2024-11-30 22:34:24,752 - DEBUG - Detected text: you horror doing
+2024-11-30 22:34:24,754 - WARNING - No valid command detected.
+2024-11-30 22:34:24,755 - INFO - Listening for audio input...
+2024-11-30 22:34:30,333 - INFO - Audio input captured successfully.
+2024-11-30 22:34:30,583 - DEBUG - Detected text: 
+2024-11-30 22:34:30,586 - WARNING - No valid command detected.
+2024-11-30 22:34:30,587 - INFO - Listening for audio input...
+2024-11-30 22:34:36,171 - INFO - Audio input captured successfully.
+2024-11-30 22:34:36,588 - DEBUG - Detected text: it
+2024-11-30 22:34:36,589 - WARNING - No valid command detected.
+2024-11-30 22:34:36,590 - INFO - Listening for audio input...
+2024-11-30 22:34:42,174 - INFO - Audio input captured successfully.
+2024-11-30 22:34:42,541 - DEBUG - Detected text: it can
+2024-11-30 22:34:42,543 - WARNING - No valid command detected.
+2024-11-30 22:34:42,543 - INFO - Listening for audio input...
+2024-11-30 22:34:48,128 - INFO - Audio input captured successfully.
+2024-11-30 22:34:48,422 - DEBUG - Detected text: hey can you please help me
+2024-11-30 22:34:48,423 - INFO - Wake word 'hey' detected.
+2024-11-30 22:34:48,424 - INFO - Wake word detected. Listening for command...
+2024-11-30 22:34:48,425 - INFO - Listening for audio input...
+2024-11-30 22:34:54,010 - INFO - Audio input captured successfully.
+2024-11-30 22:34:54,014 - INFO - Using Vosk for offline speech recognition.
+2024-11-30 22:34:54,240 - WARNING - No clear transcription detected.
+2024-11-30 22:34:54,242 - WARNING - No valid command detected.
+2024-11-30 22:34:54,242 - INFO - Listening for audio input...
+2024-11-30 22:34:59,826 - INFO - Audio input captured successfully.
+2024-11-30 22:35:00,215 - DEBUG - Detected text: hate
+2024-11-30 22:35:00,217 - WARNING - No valid command detected.
+2024-11-30 22:35:00,217 - INFO - Listening for audio input...
+2024-11-30 22:35:05,808 - INFO - Audio input captured successfully.
+2024-11-30 22:35:06,112 - DEBUG - Detected text: who are you doing
+2024-11-30 22:35:06,114 - WARNING - No valid command detected.
+2024-11-30 22:35:06,114 - INFO - Listening for audio input...
+2024-11-30 22:35:11,732 - INFO - Audio input captured successfully.
+2024-11-30 22:35:11,952 - DEBUG - Detected text: 
+2024-11-30 22:35:11,954 - WARNING - No valid command detected.
+2024-11-30 22:35:11,955 - INFO - Listening for audio input...
+2024-11-30 22:35:14,675 - INFO - Shutting down Speech-to-Text module.

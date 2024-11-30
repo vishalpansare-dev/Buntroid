@@ -4,6 +4,13 @@ vosk
 pyqt5
 transformers
 datasets
-pyaudio
-spacy # python -m spacy download en_core_web_sm
+sounddevice
+spacy
 dateparser
+apscheduler
+boto3
+cryptography
+moviepy
+Pillow
+python-vlc
+
