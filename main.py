@@ -88,9 +88,8 @@ def run_background_tasks():
     pass
 
 
-# Start background tasks in a separate thread
-threading.Thread(target=run_background_tasks, daemon=True).start()
-
-# Run the interactive agent
-if __name__ == "__main__":
-    interactive_agent()
+elif 'what is the time' in command or 'tell me the time' in command:
+    current_time = datetime.datetime.now().strftime('%H:%M:%S')
+    return f'The current time is {current_time}'
+else:
+    return "Sorry, I don't recognize this command."
